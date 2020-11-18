@@ -1,0 +1,37 @@
+<% if @params && !@params[:errors].empty? %>
+  <div class="large-12 cell callout">
+    <p>There were errors when filling out the form</p>
+    <ul>
+      <% @params[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="large-12 cell">
+  <form method="post">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <label>Name of the book
+            <input type="text" placeholder="The hitchhiker's guide to the galaxy" name="name" value="<%= @params && @params[:name] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <label>Author
+            <input type="text" placeholder="Douglas Adams" name="author" value="<%= @params && @params[:author] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <label>Date
+            <input type="text" placeholder="YYYY-MM-DD" name="date" value="<%= @params && @params[:date] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <input type="submit" value="Save" class="button">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>Monthly statistics</h3>
+  </div>
+
+  <div class="large-12 cell">
+    <form method="get">
+      <div class="grid-x grid-padding-x">
+        <% unless @params[:errors].empty? %>
+          <div class="large-12 cell callout warning">
+            <p>
+              The filter parameters were entered incorrectly, data were not filtered out
+            </p>
+            <ul>
+              <% @params[:errors].each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="large-6 cell">
+          <label>Year
+            <input type="text" placeholder="2020" name="year" value="<%= @params[:year] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <input type="submit" value="Filter" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="large-12 cell">
+    <% if @filtered_books.empty?%>
+      <div class="callout">
+        According to your filter, there are no statistics
+      </div>
+    <% else %>
+    <table>
+      <thead>
+      <tr>
+        <th>Year</th>
+        <th>Month</th>
+        <th>Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @filtered_books.each do |key, value| %>
+        <% value.each_with_index do |month, index|%>
+        <tr>
+          <td><%= key %></td>
+          <td><%= @month[index] %></td>
+          <td><%= month %></td>
+        </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  </div>
+</div>
