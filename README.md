@@ -1,9 +1,5 @@
-# MLH-Show-and-Tell
+# 🖥 MLH-Show-and-Tell
 Small workshop on ruby and web development with the use of it
-
-# 🖥  Shortify Backend
-
-Flask, a python framework, was used for the backend of this project.
 
 ## 🚀 DEVELOPMENT STEPS
 
