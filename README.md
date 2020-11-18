@@ -21,23 +21,23 @@ For a "single" scripts you just have to:
 ```
 For a web apps:
 
-    2.1 Install bundler gem, if you don't have it.
+2.1 Install bundler gem, if you don't have it.
 
-    ```sh
-    cd triangles_web_app
-    gem install bundler
-    ```
+```sh
+cd triangles_web_app
+gem install bundler
+```
 
-    2.2 Install necessary gems
+2.2 Install necessary gems
 
-    ```sh
-    bundle install
-    ```
-    
-    2.3 Run server
-    
-    ```sh
-    rerun rackup
-    ```
-    
-    2.4 Go to http://localhost:9292/
+```sh
+bundle install
+```
+
+2.3 Run server
+
+```sh
+rerun rackup
+```
+
+2.4 Go to http://localhost:9292/
