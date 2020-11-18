@@ -1,0 +1,73 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h2>Storage</h2>
+  </div>
+
+  <div class="large-12 cell">
+    <form method="get">
+      <div class="grid-x grid-padding-x">
+        <% unless @params[:errors].empty? %>
+          <div class="large-12 cell callout warning">
+            <p>
+              The filter parameters were entered incorrectly, data were not filtered out
+            </p>
+            <ul>
+              <% @params[:errors].each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="large-6 cell">
+          <label>from: Minimum area
+            <input type="text" placeholder="0.5" name="min" value="<%= @params && @params[:min] %>">
+          </label>
+        </div>
+        <div class="large-6 cell">
+          <label>up to: Maximum area
+            <input type="text" placeholder="5.0" name="max" value="<%= @params && @params[:max] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <input type="submit" value="Filter" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="large-12 cell">
+    <% if @filtered_triangles.empty? %>
+      <div class="callout">
+        According to your filter, no suitable triangles were found.
+      </div>
+    <% else %>
+    <table>
+      <thead>
+      <tr>
+        <th>No.</th>
+        <th>Triangle Square</th>
+        <th>First side</th>
+        <th>Second side</th>
+        <th>Third party</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @filtered_triangles.each_with_index do |triangle, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= triangle.area %></td>
+          <td><%= triangle.first %></td>
+          <td><%= triangle.second %></td>
+          <td><%= triangle.third %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% end %>
+
+    <div class="large-12 cell">
+      <a href="new_triangle" class="button">New triangle</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<% if @params && !@params[:errors].empty? %>
+  <div class="large-12 cell callout">
+    <p>There were errors when filling out the form</p>
+    <ul>
+      <% @params[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="large-12 cell">
+  <form method="post">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <label>First side
+            <input type="text" placeholder="5" name="first" value="<%= @params && @params[:first] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <label>Second side
+            <input type="text" placeholder="5" name="second" value="<%= @params && @params[:second] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <label>Third side
+            <input type="text" placeholder="5" name="third" value="<%= @params && @params[:third] %>">
+          </label>
+        </div>
+        <div class="large-12 cell">
+          <input type="submit" value="Save" class="button">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
