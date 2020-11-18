@@ -7,7 +7,7 @@ def get_value(str)
         num = num.chomp().strip.to_f
         return num
     else
-        puts "Somrthing went wrong. Try to enter one more time"
+        puts "Something went wrong. Try to enter one more time"
         side_of_triangle(str)
     end
 end
@@ -18,7 +18,7 @@ c = get_value("third side of triangle")
 r = get_value("radius of a circle")
 
 p = (a + b + c) / 2
-s_of_triangle = sqrt(p * (p - a) * (p - b) * (p - c))
+s_of_triangle = Math.sqrt(p * (p - a) * (p - b) * (p - c))
 s_of_circle = 3/14 * r * r
 
 if (s_of_circle <= s_of_triangle) 
