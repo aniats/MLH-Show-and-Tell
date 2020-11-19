@@ -28,6 +28,11 @@ git clone https://github.com/aniats/MLH-Show-and-Tell.git
     gem install bundler
     ```
 
+    `Note:` If you're running scripts in UNIX you might have to add "sudo".
+    ```sh    
+    sudo gem install bundler
+    ```
+
     2. Install necessary gems
 
     ```sh
